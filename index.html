@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+   <head>
+      <title></title>
+      <script type="text/javascript" src="server.js"></script>
+      <style>
+      .overlay {
+         background: #000;
+         position: fixed;
+         left: 0;
+         right: 0;
+         top: 0;
+         bottom: 0;
+         z-index: 1000;
+         opacity: .5;
+      }
+      .visible {
+         background: #fff;
+         position: fixed;
+         left: 50%;
+         top: 50%;
+         margin-top: -200px;
+         overflow: hidden;
+         z-index: 2000;
+         width: 220px;
+         padding: 0px;
+         margin-left: -250px;
+      }
+      .content {
+         padding: 0 1em;
+         border-top: 1px solid #ccc;
+         border-bottom: 1px solid #ccc;
+         background: WhiteSmoke;
+      }
+       </style>
+   </head>
+   <body onload="user.load()">
+      <div id="win"  style="display:none">
+         <div class="overlay"></div>
+            <div class="visible">
+               <div class="content">
+                  <span> Ждем ответа от сервера...</span>
+                  <img style="width:200px" src="indic.gif">
+               </div>
+          </div>
+      </div>
+      <style type="text/css">
+      </style>
+      <div id="form">
+         Логин: <input type="text" value="" id="login"/><br />
+         Пароль: <input type="password" value="" id="pass"/><br />
+         <input type="button" value="Войти" onclick="auth($('login').value, $('pass').value);"/>
+      </div>
+      <div id="hello" style="display:none">
+         Привет, <b id="userName">UserName</b>
+      </div>
+      <input type="button" value="Выйти"  style="display:none" id="logout" onclick="user.logout()"/>
+   </body>
+</html>
